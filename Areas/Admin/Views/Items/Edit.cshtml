@@ -1,0 +1,117 @@
+﻿@model TbItem
+<div class="content-wrapper">
+            <div class="page-header">
+              <h3 class="page-title"> Form elements </h3>
+              <nav aria-label="breadcrumb">
+                <ol class="breadcrumb">
+                  <li class="breadcrumb-item"><a href="#">Forms</a></li>
+                  <li class="breadcrumb-item active" aria-current="page">Form elements</li>
+                </ol>
+              </nav>
+            </div>
+    <form class="forms-sample" method="post" enctype="multipart/form-data"
+              asp-area="Admin" asp-controller="Items" asp-action="Save" role="form">
+            <input asp-for="CategoryId" type="hidden" />
+            <input asp-for="ItemId" type="hidden" />
+            <input asp-for="ItemTypeId" type="hidden" />
+            <input asp-for="OsId" type="hidden" />
+           
+            <div class="row">
+             
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Main Data</h4>
+                    <p class="card-description"> Basic form layout </p>
+                  
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">Item Name</label>
+                            <input asp-for="ItemName" type="text" class="form-control" id="exampleInputUsername1" placeholder="Item Name">
+                            <span class="text-danger" asp-validation-for="ItemName"></span>
+                      </div>
+                      @*Drop Down Lists*@
+                      <div class="form-group">
+                        <label for="exampleInputUsername1">CategoryName</label>
+                            <select class="form-control"asp-for="Category" asp-items="@(new SelectList(ViewBag.Category,"CategoryId","CategoryName" ))"></select>
+                            <span class="text-danger" asp-validation-for="CategoryId"></span>
+                      </div>
+                      <div class="form-group">
+                         <label for="exampleInputUsername1">Item Type Name</label>
+                            <select class="form-control"  asp-for ="ItemId" asp-items="@(new SelectList(ViewBag.ItemType,"ItemTypeId","ItemTypeName" ))"></select>
+                            <span class="text-danger" asp-validation-for="ItemTypeId"></span>
+                      </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Operating System</label>
+                            <select class="form-control" asp-for="OsId" asp-items="@(new SelectList(ViewBag.Os,"OsId","OsName"))"></select>
+                            <span class="text-danger" asp-validation-for="OsId"></span>
+                        </div>
+
+                      <div class="form-group">
+                       <label for="exampleInputUsername1">Sales Price</label>
+                       <input  asp-for="SalesPrice" type="number" class="form-control" id="exampleInputUsername1" placeholder="Sales Price">
+                            <span class="text-danger" asp-validation-for="SalesPrice"></span>
+                      </div>
+                      <div class="form-group">
+                            <label for="exampleInputUsername1">Purchise Price</label>
+                            <input asp-for="PurchasePrice" type="number" class="form-control" id="exampleInputUsername1" placeholder="Purchise Price">
+                            <span class="text-danger" asp-validation-for="PurchasePrice"></span>
+                        </div>
+                      <div class="form-group">
+                            <label for="exampleInputUsername1">Weight</label>
+                            <input asp-for="Weight" type="number" class="form-control" id="exampleInputUsername1" placeholder="Weight">
+                            <span class="text-danger" asp-validation-for="Weight"></span>
+                        </div>
+                      <div class="form-group">
+                            <label for="exampleInputUsername1">Image</label>
+                            <input asp-for="ImageName" type="file" class="form-control" id="exampleInputUsername1" placeholder="image" name="Files">
+                            <span class="text-danger" asp-validation-for="ImageName"></span>
+                        </div>
+
+                        <button type="submit" class="btn btn-gradient-primary me-2">Save</button>
+                        <button class="btn btn-light">New</button>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6 grid-margin stretch-card">
+                <div class="card">
+                  <div class="card-body">
+                    <h4 class="card-title">Main Data</h4>
+                    <p class="card-description"> Basic form layout </p>                 
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Gpu</label>
+                            <input asp-for="Gpu" type="text" class="form-control" id="exampleInputUsername1" placeholder="Gpu">
+                            <span class="text-danger" asp-validation-for="Gpu"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Processor</label>
+                            <input asp-for="Processor" type="text" class="form-control" id="exampleInputUsername1" placeholder="Processor">
+                            <span class="text-danger" asp-validation-for="Processor"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Hard Disk</label>
+                            <input asp-for="HardDisk" type="text" class="form-control" id="exampleInputUsername1" placeholder="Hard Disk">
+                            <span class="text-danger" asp-validation-for="HardDisk"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Ram Size</label>
+                            <input asp-for="RamSize" type="number" class="form-control" id="exampleInputUsername1" placeholder="Ram Size">
+                            <span class="text-danger" asp-validation-for="RamSize"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Screen Solution</label>
+                            <input asp-for="ScreenReslution" type="text" class="form-control" id="exampleInputUsername1" placeholder="ScreenReslution">
+                            <span class="text-danger" asp-validation-for="ScreenReslution"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputUsername1">Screen Size</label>
+                            <input asp-for="ScreenSize" type="text" class="form-control" id="exampleInputUsername1" placeholder="Screen Size">
+                            <span class="text-danger" asp-validation-for="ScreenSize"></span>
+                        </div>
+
+                  </div>
+                </div>
+              </div>
+             
+            </div>
+        </form>
+</div>

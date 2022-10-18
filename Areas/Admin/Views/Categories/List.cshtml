@@ -1,0 +1,57 @@
+﻿@model List<TbCategory>
+
+
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+        <div class="card-body">
+            <h4 class="card-title">Category List</h4>
+            <div class="card-description">
+                <a href="/Admin/Categories/Edit" class="btn btn-gradient-primary btn-fw">New</a>
+            </div>
+            <table id="order-listing" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th> Category Name </th>                     
+                        <th> Action </th>
+                    </tr>
+                </thead>
+                <tbody>
+                   @foreach (var cat in Model)
+                   {
+                      
+                        <tr >
+                            <td >
+                                @cat.CategoryName 
+                            </td>                         
+                            
+                            <td>
+                                <a style="height:max-content"
+                               asp-controller="Categories" asp-action="Edit" asp-route-categoryId="@cat.CategoryId"
+                               class="btn btn-info btn-fw">Edit</a>
+
+
+                                <a asp-controller="Categories" asp-action="Delete"
+                                asp-route-categoryId="@cat.CategoryId"
+                               class="btn btn-danger btn-fw">Delete </a>
+                            </td>
+                        </tr>
+                   }
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts
+{
+    <!-- Plugin js for this page -->
+<script src="~/Admin/vendors/datatables.net/jquery.dataTables.js"></script>
+<script src="~/Admin/vendors/datatables.net-bs4/dataTables.bootstrap4.js"></script>
+<!-- End plugin js for this page -->
+<!-- Custom js for this page -->
+<script src="~/Admin/js/data-table.js"></script>
+<!-- End custom js for this page -->
+}
