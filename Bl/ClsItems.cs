@@ -10,7 +10,7 @@ namespace LapShop.Bl
             try
             {
                 LapShopContext lapShopContext = new LapShopContext();
-               var Item=lapShopContext.VwItems.ToList();
+                var Item=lapShopContext.VwItems.ToList();
                 return Item;
             }
             catch
